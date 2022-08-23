@@ -1,0 +1,42 @@
+.type-switchers {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  color: #fff;
+
+  &__link {
+    flex: 1;
+    height: 60px;
+    border-radius: 60px 60px 0 0;
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: 700;
+    background-color: #1eb7ee;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.4s;
+    &:hover {
+      background-color: #228cfd;
+    }
+
+    &_arrivals {
+      margin-left: -80px;
+    }
+  }
+
+  &__link-icon {
+    transform: scale(2.5) translate(-7px, 5px);
+  }
+}
+
+.active {
+  z-index: 1;
+  background-color: #fff;
+  color: #1eb7ee;
+  &:hover {
+    background-color: #fff;
+  }
+}

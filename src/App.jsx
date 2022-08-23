@@ -1,11 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-
-import Flights from './flights/components/flights/Flights';
+import Board from './flights/components/board/Board';
 
 const App = () => (
   // <Provider store={{}}>
-  <Flights />
+  <Board />
   // </Provider>
 );
 
