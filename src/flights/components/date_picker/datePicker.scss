@@ -1,0 +1,25 @@
+.date-picker {
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  height: 70px;
+  background-color: #fff;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    background-color: #1eb7ee;
+    border-radius: 4px;
+    font-size: 40px;
+    color: #fff;
+  }
+
+  &__input {
+    width: 110px;
+    margin-left: 5px;
+    border: none;
+  }
+}

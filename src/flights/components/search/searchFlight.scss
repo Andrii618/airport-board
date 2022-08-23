@@ -50,11 +50,12 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 28px;
-    transition: border-top-right-radius 0.4s;
+    transition: 0.4s;
     cursor: pointer;
 
     &:hover {
       border-top-right-radius: 40px;
+      background-color: #228cfd;
     }
   }
 }
