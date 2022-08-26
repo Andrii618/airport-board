@@ -3,7 +3,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import getCurrentDate from '../../../utils/dates';
+import { getCurrentDate } from '../../../utils/dates';
 
 import SearchFlight from '../search/SearchFlight';
 import TypeSwitchers from '../type_switchers/TypeSwitchers';

@@ -1,10 +1,10 @@
 /* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { useLocation } from 'react-router-dom';
 
-import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
 import history from '../../history';
+import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
 
 import './searchFlight.scss';
 
@@ -13,7 +13,11 @@ const SearchFlight = () => {
 
   const { search, date } = getSearchParams(searchUrl);
 
-  const [searchText, setSearchText] = useState(search || '');
+  const [searchText, setSearchText] = useState(search !== null ? search : '');
+
+  useEffect(() => {
+    setSearchText(search || '');
+  }, [pathname]);
 
   const handleSearchFlight = e => {
     e.preventDefault();

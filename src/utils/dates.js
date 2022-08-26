@@ -1,5 +1,5 @@
 import moment from 'moment';
 
-const getCurrentDate = () => moment(new Date()).format('DD-MM-YYYY');
+export const getCurrentDate = () => moment(new Date()).format('DD-MM-YYYY');
 
-export default getCurrentDate;
+export const formatDate = date => date.split('-').reverse().join('-');
