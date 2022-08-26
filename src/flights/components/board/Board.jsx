@@ -1,8 +1,9 @@
 /* eslint-disable arrow-body-style */
 
 import React from 'react';
-import { Router, Route, Redirect } from 'react-router-dom';
-import history from '../../history';
+import { Route, Redirect } from 'react-router-dom';
+
+import getCurrentDate from '../../../utils/dates';
 
 import SearchFlight from '../search/SearchFlight';
 import TypeSwitchers from '../type_switchers/TypeSwitchers';
@@ -14,17 +15,15 @@ import './board.scss';
 const Board = () => {
   return (
     <main className="board">
-      <Router history={history}>
-        <SearchFlight />
-        <TypeSwitchers />
-        <DatePicker />
-        <Route exact path="/">
-          <Redirect to={`/departures`} />
-        </Route>
-        <Route path="/:flightType">
-          <Table />
-        </Route>
-      </Router>
+      <SearchFlight setSearchData />
+      <TypeSwitchers />
+      <DatePicker />
+      <Route exact path="/">
+        <Redirect to={`/departures?date=${getCurrentDate()}`} />
+      </Route>
+      <Route path="/:flightType">
+        <Table />
+      </Route>
     </main>
   );
 };
