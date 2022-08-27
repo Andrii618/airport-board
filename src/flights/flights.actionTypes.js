@@ -1,0 +1,3 @@
+const SET_FLIGHTS_DATA = 'FLIGHTS/SET_FLIGHTS_DATA';
+
+export default SET_FLIGHTS_DATA;

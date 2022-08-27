@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { useLocation } from 'react-router-dom';

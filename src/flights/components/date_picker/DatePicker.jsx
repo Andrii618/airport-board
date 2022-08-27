@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 import { AiOutlineCalendar } from 'react-icons/ai';
+
+import * as flightsActions from '../../flights.actions';
+
 import history from '../../history';
 
 import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
@@ -9,12 +12,16 @@ import { formatDate, getCurrentDate } from '../../../utils/dates';
 
 import './datePicker.scss';
 
-const DatePicker = () => {
+const DatePicker = ({ getFlightsData }) => {
   const { pathname, search: searchUrl } = useLocation();
 
   const { search, date } = getSearchParams(searchUrl);
 
   const [dateValue, setDateValue] = useState(formatDate(date !== null ? date : getCurrentDate()));
+
+  useEffect(() => {
+    getFlightsData(formatDate(dateValue));
+  }, [dateValue]);
 
   const handleSetNewData = value => {
     setDateValue(value);
@@ -44,4 +51,8 @@ const DatePicker = () => {
   );
 };
 
-export default DatePicker;
+const mapDispatch = {
+  getFlightsData: flightsActions.getFlightsData,
+};
+
+export default connect(null, mapDispatch)(DatePicker);
