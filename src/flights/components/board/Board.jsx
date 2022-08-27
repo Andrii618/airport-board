@@ -1,7 +1,5 @@
-/* eslint-disable arrow-body-style */
-
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Router, Redirect } from 'react-router-dom';
 
 import { getCurrentDate } from '../../../utils/dates';
 
@@ -10,11 +8,13 @@ import TypeSwitchers from '../type_switchers/TypeSwitchers';
 import DatePicker from '../date_picker/DatePicker';
 import Table from '../table/Table';
 
+import '../../../history';
+
 import './board.scss';
 
-const Board = () => {
-  return (
-    <main className="board">
+const Board = () => (
+  <main className="board">
+    <Router history={history}>
       <SearchFlight setSearchData />
       <TypeSwitchers />
       <DatePicker />
@@ -24,8 +24,8 @@ const Board = () => {
       <Route path="/:flightType">
         <Table />
       </Route>
-    </main>
-  );
-};
+    </Router>
+  </main>
+);
 
 export default Board;

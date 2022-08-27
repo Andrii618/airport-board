@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { useLocation } from 'react-router-dom';
 
-import history from '../../history';
+import history from '../../../history';
 import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
 
 import './searchFlight.scss';

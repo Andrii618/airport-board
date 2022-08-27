@@ -4,7 +4,7 @@ import requestFlightsData from './flights.gateway';
 const setFlightsData = flightsData => ({ type: SET_FLIGHTS_DATA, payload: { flightsData } });
 
 export const getFlightsData = date => dispatch => {
-  requestFlightsData(date).then(response => {
-    dispatch(setFlightsData(response));
+  requestFlightsData(date).then(data => {
+    dispatch(setFlightsData(data));
   });
 };

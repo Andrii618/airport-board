@@ -5,7 +5,7 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 
 import * as flightsActions from '../../flights.actions';
 
-import history from '../../history';
+import history from '../../../history';
 
 import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
 import { formatDate, getCurrentDate } from '../../../utils/dates';

@@ -1,0 +1,52 @@
+import React from 'react';
+
+import './tableItem.scss';
+
+const TableItem = ({ flightInfo }) => {
+  const { terminal, flightNumber, airline, airlineLogo, airportName, localTime, status } =
+    flightInfo;
+
+  let terminalColor;
+
+  switch (terminal) {
+    case 'A':
+      terminalColor = '#34e134';
+      break;
+    case 'B':
+      terminalColor = '#9245d2';
+      break;
+    case 'C':
+      terminalColor = '#ee2b2b';
+      break;
+    case 'D':
+      terminalColor = '#1eb7ee';
+      break;
+    default:
+      break;
+  }
+
+  return (
+    <tr className="table__body-row">
+      <td>
+        <span
+          className="terminal-icon"
+          style={{ color: terminalColor, borderColor: terminalColor }}
+        >
+          {terminal}
+        </span>
+      </td>
+      <td>{localTime}</td>
+      <td>{airportName}</td>
+      <td>{status}</td>
+      <td>
+        <div className="airline">
+          <img className="airline__logo" src={airlineLogo} alt={airline} />
+          {airline}
+        </div>
+      </td>
+      <td>{flightNumber}</td>
+    </tr>
+  );
+};
+
+export default TableItem;
