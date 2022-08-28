@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ImSearch } from 'react-icons/im';
 import { useLocation } from 'react-router-dom';
+import { ImSearch } from 'react-icons/im';
 
 import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
 import history from '../../../history';
