@@ -1,6 +1,6 @@
 # 📅Airport board project
 
-  <img src="./images/layout_images/calendar-overlay.jpeg" width="1000">
+  <img src="./images/layout_images/airport-board-overlay.jpeg" width="1000">
 
 ### _React-powered application for visualisation flights data_
 
