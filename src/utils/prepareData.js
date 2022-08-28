@@ -45,7 +45,7 @@ const prepareFlightsData = (flights, flightType, filterText) => {
   return filterText
     ? flightsData.filter(
         ({ flightNumber, airportName, airline }) =>
-          flightNumber.includes(filterText) ||
+          flightNumber.toLowerCase().includes(filterText.toLowerCase()) ||
           airportName.toLowerCase().includes(filterText.toLowerCase()) ||
           airline.toLowerCase().includes(filterText.toLowerCase()),
       )

@@ -1,8 +1,13 @@
-import React from 'react';
-import { Router, Route, Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Route, Redirect, useLocation } from 'react-router-dom';
 
-import { getCurrentDate } from '../../../utils/dates';
+import * as flightsActions from '../../flights.actions';
+import flightsDataSelector from '../../flights.selectors';
 import history from '../../../history';
+
+import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
+import { formatDate, getCurrentDate } from '../../../utils/dates';
 
 import SearchFlight from '../search/SearchFlight';
 import TypeSwitchers from '../type_switchers/TypeSwitchers';
@@ -11,20 +16,48 @@ import Table from '../table/Table';
 
 import './board.scss';
 
-const Board = () => (
-  <main className="board">
-    <Router history={history}>
-      <SearchFlight />
-      <TypeSwitchers />
-      <DatePicker />
+const Board = ({ flightsData, getFlightsData }) => {
+  const { pathname, search: searchUrl } = useLocation();
+
+  const { search, date } = getSearchParams(searchUrl);
+
+  const [dateValue, setDateValue] = useState(formatDate(date !== null ? date : getCurrentDate()));
+
+  const [searchText, setSearchText] = useState(search);
+
+  useEffect(() => {
+    getFlightsData(formatDate(dateValue));
+  }, [dateValue]);
+
+  useEffect(() => {
+    const searchData = { date: formatDate(dateValue) };
+
+    if (searchText) {
+      searchData.search = searchText;
+    }
+
+    history.push(`${pathname}?${createSearchParams(searchData)}`);
+  }, [searchText]);
+
+  return (
+    <main className="board">
+      <SearchFlight pathname={pathname} searchText={searchText} setSearchText={setSearchText} />
+      <TypeSwitchers searchUrl={searchUrl} />
+      <DatePicker dateValue={dateValue} setDateValue={setDateValue} />
       <Route exact path="/">
         <Redirect to={`/departures?date=${getCurrentDate()}`} />
       </Route>
       <Route path="/:flightType">
-        <Table />
+        <Table flightsData={flightsData} searchText={searchText} />
       </Route>
-    </Router>
-  </main>
-);
+    </main>
+  );
+};
 
-export default Board;
+const mapState = state => ({ flightsData: flightsDataSelector(state) });
+
+const mapDispatch = {
+  getFlightsData: flightsActions.getFlightsData,
+};
+
+export default connect(mapState, mapDispatch)(Board);

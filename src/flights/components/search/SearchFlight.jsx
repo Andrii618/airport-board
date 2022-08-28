@@ -1,46 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { ImSearch } from 'react-icons/im';
+import React, { useState, useEffect } from 'react';
 
-import { getSearchParams, createSearchParams } from '../../../utils/searchParams';
-import history from '../../../history';
+import { ImSearch } from 'react-icons/im';
 
 import './searchFlight.scss';
 
-const SearchFlight = () => {
-  const { pathname, search: searchUrl } = useLocation();
-
-  const { search, date } = getSearchParams(searchUrl);
-
-  const [searchText, setSearchText] = useState(search !== null ? search : '');
+const SearchFlight = ({ pathname, searchText, setSearchText }) => {
+  const [inputValue, setInputValue] = useState(searchText || '');
 
   useEffect(() => {
-    setSearchText(search || '');
+    setInputValue(searchText || '');
   }, [pathname]);
-
-  const handleSearchFlight = e => {
-    e.preventDefault();
-
-    const searchData = { date };
-
-    if (searchText !== '') {
-      searchData.search = searchText;
-    }
-
-    history.push(`${pathname}?${createSearchParams(searchData)}`);
-  };
 
   return (
     <div className="search-flight">
       <h1 className="search-flight__title">Search flight</h1>
-      <form className="search-form" onSubmit={handleSearchFlight}>
+      <form
+        className="search-form"
+        onSubmit={e => {
+          e.preventDefault();
+          setSearchText(inputValue);
+        }}
+      >
         <ImSearch className="search-form__icon" />
         <input
           type="text"
           className="search-form__input"
           placeholder="Airline, destination or flight #"
-          value={searchText}
-          onChange={e => setSearchText(e.target.value)}
+          onChange={e => setInputValue(e.target.value)}
+          value={inputValue}
         />
         <button type="submit" className="search-form__submit-btn">
           Search
