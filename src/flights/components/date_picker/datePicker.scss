@@ -1,25 +1,22 @@
+@import '../../../styles/variables.scss';
+
 .date-picker {
   display: flex;
   align-items: center;
   padding-left: 45px;
   height: 70px;
-  background-color: #fff;
-
-  &__wrapper {
-    display: flex;
-    align-items: center;
-  }
+  background-color: $white-color;
 
   &__icon {
-    background-color: #1eb7ee;
     border-radius: 4px;
     font-size: 40px;
-    color: #fff;
+    background-color: $blue-color;
+    color: $white-color;
   }
 
   &__input {
-    width: 110px;
     margin-left: 10px;
+    width: 110px;
     border: none;
   }
 }

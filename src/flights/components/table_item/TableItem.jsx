@@ -12,12 +12,6 @@ const TableItem = ({ flightInfo }) => {
     case 'A':
       terminalColor = '#34e134';
       break;
-    case 'B':
-      terminalColor = '#9245d2';
-      break;
-    case 'C':
-      terminalColor = '#ee2b2b';
-      break;
     case 'D':
       terminalColor = '#1eb7ee';
       break;

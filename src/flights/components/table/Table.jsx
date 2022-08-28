@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import flightsDataSelector from '../../flights.selectors';
 import prepareFlightsData from '../../../utils/prepareData';
+import { getSearchParams } from '../../../utils/searchParams';
 
 import './table.scss';
 import TableItem from '../table_item/TableItem';
@@ -14,7 +15,7 @@ const Table = ({ flightsData }) => {
 
   const { flightType } = useParams();
 
-  const searchText = new URLSearchParams(search).get('search');
+  const { search: searchText } = getSearchParams(search);
 
   useEffect(() => {
     setFlightsListToRender(prepareFlightsData(flightsData, flightType, searchText));

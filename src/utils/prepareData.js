@@ -1,4 +1,4 @@
-import { createTime } from './dates';
+import { compareTime, createTime } from './dates';
 
 const prepareFlightsData = (flights, flightType, filterText) => {
   if (!flights) {
@@ -21,26 +21,11 @@ const prepareFlightsData = (flights, flightType, filterText) => {
       case 'LN':
         status = `Arrived at ${timeStatus}`;
         break;
-      case 'FR':
-        status = 'In the sky';
-        break;
-      case 'ON':
-        status = 'On time';
-        break;
-      case 'GC':
-        status = 'Landed';
-        break;
-      case 'DL':
-        status = 'Late';
-        break;
       case 'CX':
         status = 'Registration';
         break;
-      case 'BD':
-        status = 'Landing';
-        break;
       default:
-        status = flight.status;
+        status = 'Undefined';
     }
 
     return {
@@ -54,6 +39,8 @@ const prepareFlightsData = (flights, flightType, filterText) => {
       flightNumber: flight.codeShareData[0].codeShare,
     };
   });
+
+  flightsData.sort((a, b) => compareTime(a, b));
 
   return filterText
     ? flightsData.filter(

@@ -11,3 +11,17 @@ export const createTime = date => {
 
   return `${hours}:${minutes}`;
 };
+
+export const compareTime = (a, b) => {
+  const [firstHours, firstMinutes] = a.localTime.split(':');
+
+  const [secondHours, secondMinutes] = b.localTime.split(':');
+
+  [firstHours, firstMinutes, secondMinutes, secondHours].forEach(el => Number(el));
+
+  if (firstHours === secondHours) {
+    return firstMinutes - secondMinutes;
+  }
+
+  return firstHours - secondHours;
+};

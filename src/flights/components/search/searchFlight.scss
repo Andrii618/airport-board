@@ -1,19 +1,20 @@
+@import '../../../styles/variables.scss';
+
 .search-flight {
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin: auto;
-  width: 760px;
+  max-width: 760px;
 
   &__title {
+    text-transform: uppercase;
     font-size: 70px;
     font-weight: 300;
-    text-transform: uppercase;
   }
 }
 
 .search-form {
-  height: 80px;
   position: relative;
 
   &__icon {
@@ -45,17 +46,17 @@
     height: 80px;
     border: none;
     border-top-right-radius: 80px;
-    background-color: #1eb7ee;
-    color: #fff;
     text-transform: uppercase;
-    font-weight: 700;
     font-size: 28px;
+    font-weight: 700;
     transition: 0.4s;
+    background-color: $blue-color;
+    color: $white-color;
     cursor: pointer;
 
     &:hover {
       border-top-right-radius: 40px;
-      background-color: #228cfd;
+      background-color: $dark-blue-color;
     }
   }
 }

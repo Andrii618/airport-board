@@ -37,16 +37,13 @@ const DatePicker = ({ getFlightsData }) => {
 
   return (
     <div className="date-picker">
-      <label htmlFor="date" className="date-picker__wrapper">
-        <AiOutlineCalendar className="date-picker__icon" />
-        <input
-          type="date"
-          className="date-picker__input"
-          id="date"
-          value={dateValue}
-          onChange={e => handleSetNewData(e.target.value)}
-        />
-      </label>
+      <AiOutlineCalendar className="date-picker__icon" />
+      <input
+        className="date-picker__input"
+        type="date"
+        value={dateValue}
+        onChange={e => handleSetNewData(e.target.value)}
+      />
     </div>
   );
 };
