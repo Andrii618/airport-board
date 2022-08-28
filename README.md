@@ -1,17 +1,13 @@
-# 📅Airport board project
+# ✈️Airport board project
 
-  <img src="./images/layout_images/calendar-overlay.jpeg" width="1000">
+  <img src="./images/layout_images/airport-board-overlay.jpeg" width="1000">
 
 ### _React-powered application for visualisation flights data_
 
 ## ✨Features
 
-- Possibility to show and update current event information
+- Search flight by airline, destionation or flight code
 - User-friendly and minimalistic design
-- Events overlap dynamic validation
-- Events create form autofilling
-- Timeline shows current time
-- Added tasks dynamic counter
 
 ## ⚙️Used technologies:
 
@@ -22,6 +18,8 @@
 - BEM methodology
 - JS ES6
 - React 
+- SPA / React Router
+- Redux
 - Webpack
 - Babel
 - ESLint
@@ -32,7 +30,7 @@
 Move to the fold, install all dependencies and run the server:
 
 ```sh
-cd calendar-react
+cd airport-board
 npm i
 npm start
 ```
@@ -42,7 +40,7 @@ npm start
 npm run build
 ```
 
-Calendar requires [NodeJS](https://nodejs.org/) v10+ to build
+Airport board requires [NodeJS](https://nodejs.org/) v10+ to build
 
 <hr/>
 
