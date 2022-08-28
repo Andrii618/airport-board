@@ -7,6 +7,7 @@
 ## ✨Features
 
 - Search flight by airline, destionation or flight code
+- User-friendly and minimalistic design
 
 ## ⚙️Used technologies:
 
