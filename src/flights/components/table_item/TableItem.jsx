@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './tableItem.scss';
 
@@ -41,6 +42,10 @@ const TableItem = ({ flightInfo }) => {
       <td>{flightNumber}</td>
     </tr>
   );
+};
+
+TableItem.propTypes = {
+  flightInfo: PropTypes.object,
 };
 
 export default TableItem;

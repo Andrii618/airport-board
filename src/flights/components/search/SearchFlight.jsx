@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { ImSearch } from 'react-icons/im';
 
@@ -35,6 +36,16 @@ const SearchFlight = ({ pathname, searchText, setSearchText }) => {
       </form>
     </div>
   );
+};
+
+SearchFlight.propTypes = {
+  pathname: PropTypes.string.isRequired,
+  searchText: PropTypes.string,
+  setSearchText: PropTypes.func.isRequired,
+};
+
+SearchFlight.defaultProps = {
+  searchText: '',
 };
 
 export default SearchFlight;

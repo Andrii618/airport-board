@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { GiAirplaneDeparture, GiAirplaneArrival } from 'react-icons/gi';
+import PropTypes from 'prop-types';
 
 import './typeSwitchers.scss';
 
@@ -24,5 +25,9 @@ const TypeSwitchers = ({ searchUrl }) => (
     </NavLink>
   </div>
 );
+
+TypeSwitchers.propTypes = {
+  searchUrl: PropTypes.string.isRequired,
+};
 
 export default TypeSwitchers;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import prepareFlightsData from '../../../utils/prepareData';
 
@@ -41,6 +42,16 @@ const Table = ({ flightsData, searchText }) => {
       </table>
     </div>
   );
+};
+
+Table.propTypes = {
+  flightsData: PropTypes.object,
+  searchText: PropTypes.string,
+};
+
+Table.defaultProps = {
+  flightsData: undefined,
+  searchText: '',
 };
 
 export default Table;

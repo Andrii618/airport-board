@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route, Redirect, useLocation } from 'react-router-dom';
 
@@ -58,6 +59,15 @@ const mapState = state => ({ flightsData: flightsDataSelector(state) });
 
 const mapDispatch = {
   getFlightsData: flightsActions.getFlightsData,
+};
+
+Board.propTypes = {
+  flightsData: PropTypes.object,
+  getFlightsData: PropTypes.func.isRequired,
+};
+
+Board.defaultProps = {
+  flightsData: undefined,
 };
 
 export default connect(mapState, mapDispatch)(Board);

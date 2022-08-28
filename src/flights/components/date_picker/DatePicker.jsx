@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { AiOutlineCalendar } from 'react-icons/ai';
 
@@ -15,5 +16,10 @@ const DatePicker = ({ dateValue, setDateValue }) => (
     />
   </div>
 );
+
+DatePicker.propTypes = {
+  dateValue: PropTypes.string.isRequired,
+  setDateValue: PropTypes.func.isRequired,
+};
 
 export default DatePicker;
