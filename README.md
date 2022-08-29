@@ -44,6 +44,6 @@ Airport board requires [NodeJS](https://nodejs.org/) v10+ to build
 
 <hr/>
 
-### Application available via [link](https://master--rococo-smakager-b948fc.netlify.app/) 👈🏻 ###
+### Application available via [link](https://incomparable-torte-1841c0.netlify.app/) 👈🏻 ###
 
 ### Developed by [Andrii Shevchuk](https://github.com/Andrii618/) ###
