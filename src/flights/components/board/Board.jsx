@@ -38,7 +38,7 @@ const Board = ({ flightsData, getFlightsData }) => {
     }
 
     history.push(`${pathname}?${createSearchParams(searchData)}`);
-  }, [searchText]);
+  }, [searchText, dateValue]);
 
   return (
     <main className="board">
